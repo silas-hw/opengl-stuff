@@ -65,6 +65,8 @@ class MainApp:
             z_vel = 0
 
             delta = self.delta
+            if delta == 0:
+                delta = 1
 
             if keyboard.is_pressed("w") and self.cube.z < 15.5 and not self.checkCollision("N"):
                 z_vel += current_speed
@@ -109,7 +111,7 @@ class MainApp:
             ogl.glClear(ogl.GL_COLOR_BUFFER_BIT | ogl.GL_DEPTH_BUFFER_BIT)
             self.floor.drawFloor()
 
-            print(self.delta)
+            print(f"{x_vel*delta}    FPS:{1/delta}")
 
             if self.cube.x-self.cube.w+0.1 < self.cube2.x+self.cube2.w and self.cube.z-self.cube.l+0.1 < self.cube2.z+self.cube2.l: #WHY ISNT THIS WORKING????????
                 self.cube2.drawCube()
