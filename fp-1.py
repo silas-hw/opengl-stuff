@@ -9,6 +9,10 @@ class MainApp:
     def __init__(self):
         pygame.init()
         pygame.display.set_mode((800, 600), pyg_locals.DOUBLEBUF | pyg_locals.OPENGL)
+
+        #fps and xyz text
+        pygame.font.init()
+        self.fpsfont = pygame.font.SysFont("Proxy 1", 5)
             
         oglu.gluPerspective(45, 800/600, 0.1, 50.0)
         oglu.gluLookAt(-15, 15, -15, 0, 0, 0, 0, 1,0)  
@@ -18,6 +22,8 @@ class MainApp:
 
         #self.mouse = pynput.mouse.Controller()
         #self.previousMousePos = self.mouse.position
+
+        self.current_frame = 0
 
         self.i = 0
 
@@ -58,6 +64,8 @@ class MainApp:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
+
+            self.current_frame += 1
 
             #move the cube based on keyboard
             x_vel = 0
@@ -111,7 +119,9 @@ class MainApp:
             ogl.glClear(ogl.GL_COLOR_BUFFER_BIT | ogl.GL_DEPTH_BUFFER_BIT)
             self.floor.drawFloor()
 
-            print(f"{x_vel*delta}    FPS:{1/delta}")
+            #display fps on window title every 15 frames
+            if self.current_frame%15 == 0:
+                pygame.display.set_caption(f"FPS:{int(1/delta)}")
 
             if self.cube.x-self.cube.w+0.1 < self.cube2.x+self.cube2.w and self.cube.z-self.cube.l+0.1 < self.cube2.z+self.cube2.l: #WHY ISNT THIS WORKING????????
                 self.cube2.drawCube()
