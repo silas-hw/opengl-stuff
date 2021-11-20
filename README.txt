@@ -2,8 +2,6 @@ hey dummy, if you forget anything about this directory then read this.
 
 |//////////////////////////////////////////////////////////////////////////|
 
-File name shorthand:
-
 -------------------
 
 fp = fixed-pipeline
