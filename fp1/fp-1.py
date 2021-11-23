@@ -125,7 +125,7 @@ class MainApp:
             if self.current_frame%15 == 0:
                 pygame.display.set_caption(f"FPS:{int(1/delta)}")
 
-            if self.cube.x-self.cube.w+0.1 < self.cube2.x+self.cube2.w and self.cube.z-self.cube.l+0.1 < self.cube2.z+self.cube2.l: #WHY ISNT THIS WORKING????????
+            if self.cube.x-self.cube.w+0.1 < self.cube2.x+self.cube2.w and self.cube.z-self.cube.l+0.1 < self.cube2.z+self.cube2.l:
                 self.cube2.drawCube()
                 self.cube.drawCube()
             else:
