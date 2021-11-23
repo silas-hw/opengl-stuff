@@ -1,6 +1,6 @@
 # opengl stuff
 
-*This is just a place to dump all my opengl python files whilst im learning it*
+This is just a place to dump all my opengl python files whilst im learning it
 
 | filename shorthand | meaning               | definition                                                    |
 | ------------------ | --------------------- | ------------------------------------------------------------- |
