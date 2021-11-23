@@ -5,4 +5,4 @@
 | filename shorthand | meaning               | definition                                                    |
 | ------------------ | --------------------- | ------------------------------------------------------------- |
 | fp                 | fixed pipeline        | anything made with fixed pipeline                             |
-| nfp                | non-fixed pipeline    | anything made with programmaple pipeline (better than fp lol) |
+| nfp                | non-fixed pipeline    | anything made with programmable pipeline (better than fp lol) |
