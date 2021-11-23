@@ -18,12 +18,6 @@ class MainApp:
             
         oglu.gluPerspective(45, 800/600, 0.1, 50.0)
         oglu.gluLookAt(-15, 15, -15, 0, 0, 0, 0, 1,0)  
-            
-        #ogl.glTranslatef(0.0, 0.0, -15)
-        #ogl.glRotatef(0, 0, 0, 0)
-
-        #self.mouse = pynput.mouse.Controller()
-        #self.previousMousePos = self.mouse.position
 
         self.current_frame = 0
 
@@ -134,7 +128,6 @@ class MainApp:
 
             pygame.display.flip()
         
-
     def checkCollision(self, direction:str=None):
         if not direction:
             check_coords = [[self.cube.x-1, self.cube.y+1, self.cube.z-1], [self.cube.x+1, self.cube.y-1, self.cube.z+1]]
