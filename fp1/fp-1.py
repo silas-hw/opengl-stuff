@@ -129,6 +129,7 @@ class MainApp:
             pygame.display.flip()
         
     def checkCollision(self, direction:str=None):
+        check_coords = []
         if not direction:
             check_coords = [[self.cube.x-1, self.cube.y+1, self.cube.z-1], [self.cube.x+1, self.cube.y-1, self.cube.z+1]]
         elif direction == "N":
