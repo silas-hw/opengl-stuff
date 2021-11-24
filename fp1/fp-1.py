@@ -100,9 +100,6 @@ class MainApp:
                 else:
                     jump_progress = 0
                     isJump = False
-
-            if keyboard.is_pressed("j"):
-                ogl.glRotatef(30*delta, 0, 1, 0)
                 
             if self.cube.y > 0 and not self.checkCollision("D"):
                 self.cube.y -= 9*delta
@@ -111,9 +108,6 @@ class MainApp:
             self.cube.z += z_vel*delta
 
             #print(self.cube.x, self.cube.z, self.cube.y)
-
-            if keyboard.is_pressed("j"):
-                ogl.glRotatef(180*self.delta, 0, 0, 0)
               
             ogl.glClear(ogl.GL_COLOR_BUFFER_BIT | ogl.GL_DEPTH_BUFFER_BIT)
             self.floor.drawFloor()
@@ -128,6 +122,9 @@ class MainApp:
             else:
                 self.cube.drawCube()
                 self.cube2.drawCube()
+
+            if keyboard.is_pressed("j"):
+                ogl.glRotatef(15*delta, 0, 1, 0) #sometimes zooms out????
 
             pygame.display.flip()
         
