@@ -106,6 +106,9 @@ class MainApp:
                 else:
                     jump_progress = 0
                     isJump = False
+
+            if keyboard.is_pressed("j"):
+                ogl.glRotatef(30*delta, 0, 1, 0)
                 
             if self.cube.y > 0 and not self.checkCollision("D"):
                 self.cube.y -= 9*delta
