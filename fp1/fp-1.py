@@ -18,12 +18,6 @@ class MainApp:
             
         oglu.gluPerspective(45, 800/600, 0.1, 50.0)
         oglu.gluLookAt(-15, 15, -15, 0, 0, 0, 0, 1,0)  
-            
-        #ogl.glTranslatef(0.0, 0.0, -15)
-        #ogl.glRotatef(0, 0, 0, 0)
-
-        #self.mouse = pynput.mouse.Controller()
-        #self.previousMousePos = self.mouse.position
 
         self.current_frame = 0
 
@@ -128,7 +122,7 @@ class MainApp:
             if self.current_frame%15 == 0:
                 pygame.display.set_caption(f"FPS:{int(1/delta)}")
 
-            if self.cube.x-self.cube.w+0.1 < self.cube2.x+self.cube2.w and self.cube.z-self.cube.l+0.1 < self.cube2.z+self.cube2.l: #WHY ISNT THIS WORKING????????
+            if self.cube.x-self.cube.w+0.1 < self.cube2.x+self.cube2.w and self.cube.z-self.cube.l+0.1 < self.cube2.z+self.cube2.l:
                 self.cube2.drawCube()
                 self.cube.drawCube()
             else:
@@ -137,8 +131,8 @@ class MainApp:
 
             pygame.display.flip()
         
-
     def checkCollision(self, direction:str=None):
+        check_coords = []
         if not direction:
             check_coords = [[self.cube.x-1, self.cube.y+1, self.cube.z-1], [self.cube.x+1, self.cube.y-1, self.cube.z+1]]
         elif direction == "N":
