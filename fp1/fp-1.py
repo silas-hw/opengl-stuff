@@ -21,7 +21,7 @@ class MainApp:
 
         self.current_frame = 0
 
-        self.i = 0
+        self.angle = 0
 
         self.previousTime = time.time()
             
@@ -125,6 +125,10 @@ class MainApp:
 
             if keyboard.is_pressed("j"):
                 ogl.glRotatef(15*delta, 0, 1, 0) #sometimes zooms out????
+                self.angle += 15*delta
+                
+                if self.angle > 360:
+                    self.angle = 0
 
             pygame.display.flip()
         
