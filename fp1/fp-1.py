@@ -4,7 +4,7 @@ import OpenGL.GL as ogl
 import OpenGL.GLU as oglu
 import keyboard, pynput, time
 
-import shapes
+import shapes, datatypes
 
 class MainApp:
 
