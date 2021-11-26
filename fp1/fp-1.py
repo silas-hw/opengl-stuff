@@ -155,5 +155,5 @@ class MainApp:
         return False
 
 if __name__ == '__main__':
-  app = MainApp()
-  app.mainloop()
+    app = MainApp()
+    app.mainloop()
