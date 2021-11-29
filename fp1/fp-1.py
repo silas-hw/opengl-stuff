@@ -31,6 +31,7 @@ class MainApp:
 
         self.cube2.x=10
         self.cube2.z=6
+        self.cube2.y=0.5
 
         self.collision = [[self.cube2.x-1*self.cube2.w, self.cube2.y+1*self.cube2.h, self.cube2.z-1*self.cube2.l], [self.cube2.x+1*self.cube2.w, self.cube2.y-1*self.cube2.h, self.cube2.z+1*self.cube2.l]]
 
