@@ -91,7 +91,7 @@ class MainApp:
                 current_speed = 0
 
             #jump code
-            if keyboard.is_pressed("space") and (self.checkCollision("D") or self.cube.y<=0) and not isJump:
+            if keyboard.is_pressed("space") and (self.checkCollision("D") or self.cube.y<=0.1) and not isJump:
                 isJump = True
 
             if isJump:
@@ -102,7 +102,7 @@ class MainApp:
                     jump_progress = 0
                     isJump = False
                 
-            if self.cube.y > 0 and not self.checkCollision("D"):
+            if self.cube.y > 0.1 and not self.checkCollision("D"):
                 self.cube.y -= 9*delta
 
             self.cube.x += x_vel*delta
