@@ -50,19 +50,19 @@ class Cube:
         return (self.x, self.y, self.z)
 
     def drawCube(self):
-        ogl.glBegin(ogl.GL_QUADS)
-        for face in self.faces:
-            ogl.glColor3fv(self.color)
-            for j, vertex in enumerate(face):
-                vertex = self.verticies[vertex]
-                vertex = (vertex[0]+self.x+1, vertex[1]+self.y+1, vertex[2]+self.z+1)
-                ogl.glVertex3fv(vertex)
-        ogl.glEnd()
-
         ogl.glBegin(ogl.GL_LINES)
         ogl.glColor3fv((1, 1, 1))
         for edge in self.lines:
             for vertex in edge:
+                vertex = self.verticies[vertex]
+                vertex = (vertex[0]+self.x+1, vertex[1]+self.y+1, vertex[2]+self.z+1)
+                ogl.glVertex3fv(vertex)
+        ogl.glEnd()
+        
+        ogl.glBegin(ogl.GL_QUADS)
+        for face in self.faces:
+            ogl.glColor3fv(self.color)
+            for j, vertex in enumerate(face):
                 vertex = self.verticies[vertex]
                 vertex = (vertex[0]+self.x+1, vertex[1]+self.y+1, vertex[2]+self.z+1)
                 ogl.glVertex3fv(vertex)
