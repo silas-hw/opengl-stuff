@@ -18,6 +18,12 @@ class Menu(tk.Frame):
         self.rotateEntry = ttk.Entry(self.root, width=self.entry_width)
         self.rotateEntry.grid(row=0, column=1, pady=self.pady)
 
+        self.movementLabel = tk.Label(self.root, text="Movement Speed")
+        self.movementLabel.grid(row=1, column=0, pady=self.pady)
+
+        self.movementEntry = ttk.Entry(self.root, width=self.entry_width)
+        self.movementEntry.grid(row=1, column=1, pady=self.pady)
+
     def createWindow(self):
         self.root.mainloop()
 
