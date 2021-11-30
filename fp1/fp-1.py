@@ -4,12 +4,17 @@ import OpenGL.GL as ogl
 import OpenGL.GLU as oglu
 import keyboard, pynput, time
 
-import shapes, datatypes, os, json
+import shapes, datatypes, config_menu, os, json
+import tkinter as tk
 
 class MainApp:
 
     def __init__(self):
         self.dir_path = os.path.dirname(os.path.realpath(__file__))
+
+        root = tk.Tk()
+        self.menu = config_menu.Menu(root)
+        self.menu.createWindow()
 
         pygame.init()
         pygame.display.set_mode((800, 600), pyg_locals.DOUBLEBUF | pyg_locals.OPENGL)
