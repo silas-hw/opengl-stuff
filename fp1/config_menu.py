@@ -8,6 +8,7 @@ class Menu(tk.Frame):
 
     def __init__(self, root):
         self.dir_path = dir_path = os.path.dirname(os.path.realpath(__file__))
+        print(self.dir_path)
         self.root = root
         self.root.geometry("170x200")
         self.root.resizable(0, 0)
@@ -38,13 +39,13 @@ class Menu(tk.Frame):
         except ValueError:
             messagebox.showerror("ERROR", "Entered values must be positive real numbers!")
 
-        with open("config.json", "r") as f:
+        with open(f"{self.dir_path}\config.json", "r") as f:
             current_config = json.load(f)
 
         current_config['movement_speed'] = movement_speed
         current_config['rotate_speed'] = rotate_speed
 
-        with open("config.json", "w") as f:
+        with open(f"{self.dir_path}\config.json", "w") as f:
             json.dump(current_config, f)
 
     def createWindow(self):
