@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import json
 
-import os 
+import os
 
 class Menu(tk.Frame):
 
