@@ -65,7 +65,7 @@ class MainApp:
         
         return config['rotate_speed']
 
-    def menu(self):
+    def menu_init(self):
         root = tk.Tk() 
         self.menu = config_menu.Menu(root)
         self.menu.createWindow()
