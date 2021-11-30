@@ -17,10 +17,6 @@ class MainApp:
 
         pygame.init()
         pygame.display.set_mode((800, 600), pyg_locals.DOUBLEBUF | pyg_locals.OPENGL)
-
-        #fps and xyz text
-        pygame.font.init()
-        self.fpsfont = pygame.font.SysFont("Proxy 1", 5)
             
         oglu.gluPerspective(45, 800/600, 0.1, 50.0)
         oglu.gluLookAt(-15, 15, -15, 0, 0, 0, 0, 1,0)  
