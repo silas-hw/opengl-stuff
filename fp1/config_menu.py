@@ -38,6 +38,7 @@ class Menu(tk.Frame):
             rotate_speed = int(self.rotateEntry.get())
         except ValueError:
             messagebox.showerror("ERROR", "Entered values must be positive real numbers!")
+            return None
 
         with open(f"{self.dir_path}\config.json", "r") as f:
             current_config = json.load(f)
