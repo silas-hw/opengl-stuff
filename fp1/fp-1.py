@@ -58,6 +58,13 @@ class MainApp:
         
         return config['movement_speed']
 
+    @property
+    def rotate_speed(self):
+        with open(f"{self.dir_path}\config.json", "r") as f:
+            config = json.load(f)
+        
+        return config['rotate_speed']
+
     def menu(self):
         root = tk.Tk() 
         self.menu = config_menu.Menu(root)
@@ -140,15 +147,15 @@ class MainApp:
             self.cube2.drawCube()
 
             if keyboard.is_pressed("j"):
-                ogl.glRotatef(15*delta, 0, 1, 0) #sometimes zooms out????
-                self.angle += 15*delta
+                ogl.glRotatef(self.rotate_speed*delta, 0, 1, 0) #sometimes zooms out????
+                self.angle += self.rotate_speed*delta
                 
                 if self.angle > 360:
                     self.angle = 0
 
             if keyboard.is_pressed("l"):
-                ogl.glRotatef(-15*delta, 0, 1, 0) #sometimes zooms out????
-                self.angle += -15*delta
+                ogl.glRotatef(-self.rotate_speed*delta, 0, 1, 0) #sometimes zooms out????
+                self.angle += -self.rotate_speed*delta
                 
                 if self.angle <= 0:
                     self.angle = 360
