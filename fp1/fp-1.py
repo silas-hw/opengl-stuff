@@ -4,11 +4,13 @@ import OpenGL.GL as ogl
 import OpenGL.GLU as oglu
 import keyboard, pynput, time
 
-import shapes, datatypes
+import shapes, datatypes, os, json
 
 class MainApp:
 
     def __init__(self):
+        self.dir_path = os.path.dirname(os.path.realpath(__file__))
+
         pygame.init()
         pygame.display.set_mode((800, 600), pyg_locals.DOUBLEBUF | pyg_locals.OPENGL)
 
@@ -45,6 +47,13 @@ class MainApp:
         self.previousTime = time.time()
         return out
 
+    @property
+    def movement_speed(self):
+        with open(f"{self.dir_path}\config.json", "r") as f:
+            config = json.load(f)
+        
+        return config['movement_speed']
+
     def mainloop(self):
 
         #move these to class attributes
@@ -53,7 +62,6 @@ class MainApp:
         jump_speed = 25
         jump_progress = 0
 
-        movement_speed = 15
         accel = 18
         current_speed = 0
 
@@ -85,7 +93,7 @@ class MainApp:
 
             #code for acceleration
             if keyboard.is_pressed("w") or keyboard.is_pressed("s") or keyboard.is_pressed("a") or keyboard.is_pressed("d"):
-                if current_speed < movement_speed:
+                if current_speed < self.movement_speed:
                     current_speed += accel*delta
 
             if not (keyboard.is_pressed("w") or keyboard.is_pressed("s") or keyboard.is_pressed("a") or keyboard.is_pressed("d")):
