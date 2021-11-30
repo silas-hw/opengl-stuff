@@ -4,7 +4,7 @@ import OpenGL.GL as ogl
 import OpenGL.GLU as oglu
 import keyboard, pynput, time
 
-import shapes, datatypes, config_menu, os, json
+import shapes, datatypes, config_menu, os, json, threading
 import tkinter as tk
 
 class MainApp:
@@ -12,9 +12,8 @@ class MainApp:
     def __init__(self):
         self.dir_path = os.path.dirname(os.path.realpath(__file__))
 
-        root = tk.Tk()
-        self.menu = config_menu.Menu(root)
-        self.menu.createWindow()
+        self.menu_thread = threading.Thread(target=self.menu)
+        self.menu_thread.start()
 
         pygame.init()
         pygame.display.set_mode((800, 600), pyg_locals.DOUBLEBUF | pyg_locals.OPENGL)
@@ -58,6 +57,11 @@ class MainApp:
             config = json.load(f)
         
         return config['movement_speed']
+
+    def menu(self):
+        root = tk.Tk() 
+        self.menu = config_menu.Menu(root)
+        self.menu.createWindow()
 
     def mainloop(self):
 
