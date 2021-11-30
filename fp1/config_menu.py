@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import json
 
-import os
+import os, sys
 
 class Menu(tk.Frame):
 
@@ -53,6 +53,7 @@ class Menu(tk.Frame):
 
     def destroyWindow(self):
         self.root.destroy()
+        sys.exit()
 
 if __name__ == '__main__':
     root = tk.Tk()
