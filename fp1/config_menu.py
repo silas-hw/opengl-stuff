@@ -25,6 +25,9 @@ class Menu(tk.Frame):
         self.movementEntry = ttk.Entry(self.root, width=self.entry_width)
         self.movementEntry.grid(row=1, column=1, pady=self.pady)
 
+        self.applyButt = ttk.Button(self.root, text="Apply", width=self.entry_width, command=self.applyChanges)
+        self.applyButt.grid(row=2, column=1, pady=self.pady)
+
     def applyChanges(self):
         try:
             movement_speed = int(self.movementEntry.get())
@@ -40,7 +43,7 @@ class Menu(tk.Frame):
 
         with open("config.json", "w") as f:
             json.dump(current_config, f)
-            
+
     def createWindow(self):
         self.root.mainloop()
 
