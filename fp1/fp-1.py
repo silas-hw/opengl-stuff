@@ -169,15 +169,15 @@ class MainApp:
         if not direction:
             check_coords = [[self.cube.x-1, self.cube.y+1, self.cube.z-1], [self.cube.x+1, self.cube.y-1, self.cube.z+1]]
         elif direction == "N":
-            check_coords = [[self.cube.x-0.9, self.cube.y+0.9, self.cube.z+1], [self.cube.x+0.9, self.cube.y-0.9, self.cube.z+1]]
+            check_coords = [[self.cube.x-0.9, self.cube.y+0.9, self.cube.z+1.2], [self.cube.x+0.9, self.cube.y-0.9, self.cube.z+1.2]]
         elif direction == "S":
-            check_coords = [[self.cube.x-0.9, self.cube.y+0.9, self.cube.z-1], [self.cube.x+0.9, self.cube.y-0.9, self.cube.z-1]]
+            check_coords = [[self.cube.x-0.9, self.cube.y+0.9, self.cube.z-1.2], [self.cube.x+0.9, self.cube.y-0.9, self.cube.z-1.2]]
         elif direction == "E":
-            check_coords = [[self.cube.x+1, self.cube.y+0.9, self.cube.z-0.9], [self.cube.x+1, self.cube.y-0.9, self.cube.z+0.9]]
+            check_coords = [[self.cube.x+1.2, self.cube.y+0.9, self.cube.z-0.9], [self.cube.x+1.2, self.cube.y-0.9, self.cube.z+0.9]]
         elif direction == "W":
-            check_coords = [[self.cube.x-1, self.cube.y+0.9, self.cube.z-0.9], [self.cube.x-1, self.cube.y-0.9, self.cube.z+0.9]]
+            check_coords = [[self.cube.x-1.2, self.cube.y+0.9, self.cube.z-0.9], [self.cube.x-1.2, self.cube.y-0.9, self.cube.z+0.9]]
         elif direction == "D":
-            check_coords = [[self.cube.x-0.99, self.cube.y-1, self.cube.z-0.99], [self.cube.x+0.99, self.cube.y-1, self.cube.z+0.99]]
+            check_coords = [[self.cube.x-0.99, self.cube.y-1.2, self.cube.z-0.99], [self.cube.x+0.99, self.cube.y-1.2, self.cube.z+0.99]]
             
         if (check_coords[1][0]>=self.collision[0][0]) and (check_coords[0][0]<=self.collision[1][0]):
             if (check_coords[1][1]<=self.collision[0][1]) and (check_coords[0][1]>=self.collision[1][1]):
