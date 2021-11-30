@@ -13,13 +13,13 @@ class Menu(tk.Frame):
         self.entry_width = 10
 
         self.rotateLabel = tk.Label(self.root, text="Rotate Speed")
-        self.rotateLabel.grid(row=0, column=0, pady=self.pady)
+        self.rotateLabel.grid(row=0, column=0, pady=self.pady, sticky=tk.W)
 
         self.rotateEntry = ttk.Entry(self.root, width=self.entry_width)
         self.rotateEntry.grid(row=0, column=1, pady=self.pady)
 
         self.movementLabel = tk.Label(self.root, text="Movement Speed")
-        self.movementLabel.grid(row=1, column=0, pady=self.pady)
+        self.movementLabel.grid(row=1, column=0, pady=self.pady, sticky=tk.W)
 
         self.movementEntry = ttk.Entry(self.root, width=self.entry_width)
         self.movementEntry.grid(row=1, column=1, pady=self.pady)
