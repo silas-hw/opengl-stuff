@@ -129,6 +129,15 @@ class MainApp:
                 if self.angle > 360:
                     self.angle = 0
 
+            if keyboard.is_pressed("l"):
+                ogl.glRotatef(-15*delta, 0, 1, 0) #sometimes zooms out????
+                self.angle += -15*delta
+                
+                if self.angle <= 0:
+                    self.angle = 360
+
+            print(self.angle)
+
             pygame.display.flip()
         
     def checkCollision(self, direction:str=None):
