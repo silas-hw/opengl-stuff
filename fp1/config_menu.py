@@ -6,7 +6,7 @@ class Menu(tk.Frame):
 
     def __init__(self, root):
         self.root = root
-        self.root.geometry("150x200")
+        self.root.geometry("170x200")
         self.root.resizable(0, 0)
         super().__init__(self.root)
 
