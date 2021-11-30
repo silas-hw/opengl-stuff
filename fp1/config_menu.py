@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
+import json
 
 class Menu(tk.Frame):
 
@@ -24,6 +25,22 @@ class Menu(tk.Frame):
         self.movementEntry = ttk.Entry(self.root, width=self.entry_width)
         self.movementEntry.grid(row=1, column=1, pady=self.pady)
 
+    def applyChanges(self):
+        try:
+            movement_speed = int(self.movementEntry.get())
+            rotate_speed = int(self.rotateEntry.get())
+        except ValueError:
+            messagebox.showerror("ERROR", "Entered values must be positive real numbers!")
+
+        with open("config.json", "r") as f:
+            current_config = json.load(f)
+
+        current_config['movement_speed'] = movement_speed
+        current_config['rotate_speed'] = rotate_speed
+
+        with open("config.json", "w") as f:
+            json.dump(current_config, f)
+            
     def createWindow(self):
         self.root.mainloop()
 
