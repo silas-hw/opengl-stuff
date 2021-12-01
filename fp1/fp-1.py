@@ -156,8 +156,24 @@ class MainApp:
                     z_proportion = -(self.angle-270)/90
 
                 ogl.glTranslate(1*x_proportion*delta, 0, 1*z_proportion*delta)
-                
-            print(self.angle)
+
+            if keyboard.is_pressed("k"):
+                x_proportion = 0
+                z_proportion = 0
+                if self.angle<90:
+                    x_proportion = (self.angle/90)
+                    z_proportion = -(90-self.angle)/90
+                elif self.angle<180:
+                    x_proportion = ((90-(self.angle-90))/90)
+                    z_proportion = ((self.angle-90)/90)
+                elif self.angle<270:
+                    x_proportion = -(self.angle-180)/90
+                    z_proportion = ((90-(self.angle-180))/90)
+                elif self.angle<360:
+                    x_proportion = -(90-(self.angle-270))/90
+                    z_proportion = -(self.angle-270)/90
+
+                ogl.glTranslate(-1*x_proportion*delta, 0, -1*z_proportion*delta)
 
             if self.cube.y > 0.1 and not self.checkCollision("D"):
                 self.cube.y -= 9*delta
