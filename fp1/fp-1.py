@@ -123,6 +123,20 @@ class MainApp:
                 else:
                     jump_progress = 0
                     isJump = False
+
+            if keyboard.is_pressed("j"):
+                ogl.glRotatef(self.rotate_speed*delta, 0, 1, 0) #sometimes zooms out????
+                self.angle += self.rotate_speed*delta
+                
+                if self.angle > 360:
+                    self.angle = 0
+
+            if keyboard.is_pressed("l"):
+                ogl.glRotatef(-self.rotate_speed*delta, 0, 1, 0) #sometimes zooms out????
+                self.angle += -self.rotate_speed*delta
+                
+                if self.angle <= 0:
+                    self.angle = 360
                 
             if self.cube.y > 0.1 and not self.checkCollision("D"):
                 self.cube.y -= 9*delta
@@ -142,22 +156,6 @@ class MainApp:
             #draw shapes
             self.cube.drawCube()
             self.cube2.drawCube()
-
-            if keyboard.is_pressed("j"):
-                ogl.glRotatef(self.rotate_speed*delta, 0, 1, 0) #sometimes zooms out????
-                self.angle += self.rotate_speed*delta
-                
-                if self.angle > 360:
-                    self.angle = 0
-
-            if keyboard.is_pressed("l"):
-                ogl.glRotatef(-self.rotate_speed*delta, 0, 1, 0) #sometimes zooms out????
-                self.angle += -self.rotate_speed*delta
-                
-                if self.angle <= 0:
-                    self.angle = 360
-
-            print(self.angle)
 
             pygame.display.flip()
         
