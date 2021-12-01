@@ -7,11 +7,15 @@ import keyboard, pynput, time
 import shapes, datatypes, config_menu, os, json, multiprocessing
 import tkinter as tk
 
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.Logger('log_1')
+
 class MainApp:
 
     def __init__(self):
         self.dir_path = os.path.dirname(os.path.realpath(__file__))
-
+    
         self.menu_process = multiprocessing.Process(target=self.menu_init)
         self.menu_process.start()
 
@@ -195,6 +199,8 @@ class MainApp:
             self.cube2.drawCube()
 
             pygame.display.flip()
+
+            self.log()
         
     def checkCollision(self, direction:str=None):
         check_coords = []
@@ -217,6 +223,10 @@ class MainApp:
                     return True
         
         return False
+
+    def log(self):
+        logging.info(f"[VIEW ANGLE] {self.angle}")
+        logging.info(f"[CUBE COORDS] {self.cube.x}, {self.cube.y}, {self.cube.z}")
 
 if __name__ == '__main__':
     app = MainApp()
