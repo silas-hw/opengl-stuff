@@ -128,14 +128,14 @@ class MainApp:
                     jump_progress = 0
                     isJump = False
 
-            if keyboard.is_pressed("j"):
+            if keyboard.is_pressed("u"):
                 ogl.glRotatef(self.rotate_speed*delta, 0, 1, 0) #sometimes zooms out????
                 self.angle += self.rotate_speed*delta
                 
                 if self.angle > 360:
                     self.angle = 0
 
-            if keyboard.is_pressed("l"):
+            if keyboard.is_pressed("o"):
                 ogl.glRotatef(-self.rotate_speed*delta, 0, 1, 0) #sometimes zooms out????
                 self.angle += -self.rotate_speed*delta
                 
