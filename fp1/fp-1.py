@@ -2,9 +2,9 @@ import pygame
 import pygame.locals as pyg_locals
 import OpenGL.GL as ogl
 import OpenGL.GLU as oglu
-import keyboard, pynput, time
+import keyboard, pynput, time, os, json, multiprocessing
 
-import shapes, datatypes, config_menu, os, json, multiprocessing
+import shapes, datatypes, config_menu
 import tkinter as tk
 
 import logging
