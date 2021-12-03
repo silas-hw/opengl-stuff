@@ -8,7 +8,7 @@ class Menu(tk.Frame):
 
     def __init__(self, root):
         self.dir_path = dir_path = os.path.dirname(os.path.realpath(__file__))
-        print(self.dir_path)
+
         self.root = root
         self.root.geometry("170x200")
         self.root.resizable(0, 0)
